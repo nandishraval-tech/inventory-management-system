@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Inventory</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Product Inventory</h1>
+
+<tbody>
+
+{% for product in products %}
+
+<tr>
+<td>{{ product[1] }}</td>
+<td>{{ product[2] }}</td>
+<td>{{ product[3] }}</td>
+<td>{{ product[4] }}</td>
+
+<td>
+{% if product[3] < 5 %}
+<span style="color:red;">LOW STOCK</span>
+{% else %}
+Available
+{% endif %}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+<br>
+
+<a href="/">Back to Search</a>
+
+</div>
+
+</body>
+</html>

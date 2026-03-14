@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Inventory Management System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<script>
+
+function validateSearch()
+{
+var product = document.getElementById("product").value;
+
+if(product == "")
+{
+alert("Please enter a product name");
+return false;
+}
+
+return true;
+}
+
+function showTime()
+{
+var today = new Date();
+var time = today.toLocaleTimeString();
+
+document.getElementById("time").innerHTML = "System Time: " + time;
+}
+
+setInterval(showTime,1000);
+
+</script>
+<h3>Nandish Raval </h3>
+<h3>Aryan Suthar </h3>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Inventory Management System</h1>
+
+<p id="time"></p>
+
+<div class="cards">
+
+<div class="card">
+<p>Total Products</p>
+<h2>25</h2>
+</div>
+
+<div class="card">
+<p>Low Stock</p>
+<h2>3</h2>
+</div>
+
+<div class="card">
+<p>Warehouses</p>
+<h2>2</h2>
+</div>
+
+</div>
+
+<div class="search-box">
+
+<form action="/search" method="get" onsubmit="return validateSearch()">
+
+<label>Search Product</label>
+
+<input type="text" id="product" name="product" placeholder="Enter product name">
+
+<button type="submit">Search</button>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
